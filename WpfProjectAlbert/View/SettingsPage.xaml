@@ -1,0 +1,90 @@
+﻿<Page x:Class="WpfProjectAlbert.View.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfProjectAlbert.View"
+     DataContext="{Binding Source={StaticResource mainViewModelLocator},  Path=SettingsViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1000"
+      Title="SettingsPage" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Grid Width="1000" Height="650" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Vertical" Margin="0,0,0,20">
+            <materialDesign:ColorZone Mode="PrimaryDark" Padding="16">
+                <DockPanel>
+                    <Button DockPanel.Dock="Left"  Command="{Binding ToHomeCommand}"
+                           Style="{StaticResource  MaterialDesignRaisedLightButton}">
+                        <materialDesign:PackIcon Kind="ArrowLeftThick" />
+                    </Button>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock VerticalAlignment="Center" Margin="16 0 0 0">
+                  4 OP EEN RIJ
+                        </TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </materialDesign:ColorZone>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="80,20,20,0">
+            <TextBox
+              materialDesign:HintAssist.Hint="Roepnaam"
+              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding ActieveGebruiker.Roepnaam, Mode=TwoWay}"
+              VerticalAlignment="Bottom" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Vertical" Margin="80,0,20,20">
+            <TextBox IsReadOnly="True"
+              materialDesign:HintAssist.Hint="Gebruikersnaam"
+                 Text="{Binding ActieveGebruiker.Gebruikersnaam}"
+              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+              VerticalAlignment="Top" />
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Vertical" Margin="80,0,20,20">
+            <DatePicker
+  materialDesign:HintAssist.Hint="Geboortedatum"
+  Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+               SelectedDate="{Binding ActieveGebruiker.Geboortedatum, Mode=TwoWay}" 
+                Width="300"/>
+
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Vertical" Margin="80,0,20,20">
+            <TextBox
+              materialDesign:HintAssist.Hint="Pincode"
+                 Text="{Binding ActieveGebruiker.Pin, Mode=TwoWay}"
+              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+              VerticalAlignment="Top"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Vertical" Margin="0,0,0,0">
+            <Button Style="{StaticResource  MaterialDesignRaisedDarkButton}"
+            Width="150" Command="{Binding EditAccountCommand}" Margin="0,0,0,15"
+            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">Wijziging opslaan
+            </Button>
+            <Button  Style="{StaticResource  MaterialDesignRaisedLightButton}"
+            Width="150" Command="{Binding DeleteAccountCommand}"
+            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">Verwijder profiel
+            </Button>
+
+        </StackPanel>
+    </Grid>
+</Page>

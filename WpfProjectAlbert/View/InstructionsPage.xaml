@@ -1,0 +1,85 @@
+﻿<Page x:Class="WpfProjectAlbert.View.InstructionsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfProjectAlbert.View"
+       DataContext="{Binding Source={StaticResource mainViewModelLocator},  Path=InstructionsViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1000"
+   Title="4 op een rij - Spelregels"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid  Width="1000" Height="650" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1000" />
+
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Vertical">
+            <materialDesign:ColorZone Mode="PrimaryDark" Padding="16">
+                <DockPanel>
+                    <Button DockPanel.Dock="Left"  Command="{Binding ToHomeCommand}"
+                           Style="{StaticResource  MaterialDesignRaisedLightButton}">
+                        <materialDesign:PackIcon Kind="ArrowLeftThick" />
+                    </Button>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock VerticalAlignment="Center" Margin="0 0 0 0">
+                  4 OP EEN RIJ
+                        </TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </materialDesign:ColorZone>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical" Margin="0,0,0,0">
+            <Image Source="/Resources/bg.png"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical" Margin="0,10,0,0">
+            <GroupBox
+  Header="Spelregels"
+  Style="{DynamicResource MaterialDesignGroupBox}"
+                materialDesign:ColorZoneAssist.Mode="Custom"
+  materialDesign:ColorZoneAssist.Background="Red"
+  materialDesign:ColorZoneAssist.Foreground="White"
+  Margin="16"
+  materialDesign:ShadowAssist.ShadowDepth="Depth3"
+  BorderThickness="0">
+                <TextBlock
+    Margin="40,6,40,6"
+    TextWrapping="Wrap">
+ Het spel Vier op een rij is misschien wel één van de simpelste spellen die er bestaat, maar daardoor zeker niet minder leuk. De bedoeling is om vier schijfjes
+                    van jouw eigen kleur, dit kan rood of geel zijn, op één rij te krijgen. Hoe deze rij tot stand komt maakt niet uit, dit kan verticaal zijn of horizontaal en diagonaal.
+                    De spelers zijn om beurten aan zet.  </TextBlock>
+            </GroupBox>
+            <GroupBox
+  Header="Speelbord"
+  Style="{DynamicResource MaterialDesignGroupBox}"
+                materialDesign:ColorZoneAssist.Mode="Custom"
+  materialDesign:ColorZoneAssist.Background="Yellow"
+  materialDesign:ColorZoneAssist.Foreground="Black"
+  Margin="16"
+  materialDesign:ShadowAssist.ShadowDepth="Depth3"
+  BorderThickness="0">
+                <TextBlock
+    Margin="40,6,40,6"
+    TextWrapping="Wrap">
+Het speelbord bestaat uit acht rijen en evenveel kolommen. Bij het begin van het spel zal dit bord leeg zijn en steeds voller geraken.
+                    De speler met de kleur geel mag beginnen en zal de set gegarandeerd op de eerste lijn doen. De schijfjes kunnen uitsluitend op lege plaatsen worden gezet en het mag bovenop andere schijfjes.  </TextBlock>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Vertical" Margin="20,200,20,0">
+
+        </StackPanel>
+
+    </Grid>
+</Page>
